@@ -1,0 +1,48 @@
+$primary-color: rgb(105,194,125);
+$secondary-color: #f2f2f2;
+$background-color: #ffffff;
+
+.container {
+    margin: 15px;
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+
+        th,
+        td {
+            padding: 10px;
+            border-bottom: 2px solid $secondary-color;
+            text-align: left;
+            word-wrap: break-word;
+            max-width: 200px;
+        }
+
+        th {
+            background-color: $background-color;
+            border-top: 2px solid $secondary-color;
+        }
+    }
+
+    tr:nth-child(odd) {
+        background-color: $secondary-color;
+    }
+
+    .addEmp {
+        color: $background-color;
+        border: none;
+        cursor: pointer;
+        float: right;
+        margin-bottom: 8px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: $primary-color;
+    }
+
+    .editEmp,
+    .delEmp {
+        border: none;
+        background-color: transparent;
+    }
+}

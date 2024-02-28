@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="header">
+    <h1>Employee List</h1>
+    <button class="addEmp" routerLink="/add">Add Employee</button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Gender</th>
+        <th>Skills</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.empId }}</td>
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.contactNumber }}</td>
+        <td>{{ employee.gender }}</td>
+        <td>
+          <ng-container
+            *ngIf="employee.skills.length === 1; else multipleSkills"
+          >
+            {{ employee.skills[0].name
+            }}{{
+              employee.skills[0].experience
+                ? " (Exp. " + employee.skills[0].experience + ")"
+                : ""
+            }}
+          </ng-container>
+          <ng-template #multipleSkills>
+            <ol>
+              <li *ngFor="let skill of employee.skills">
+                {{ skill.name
+                }}{{
+                  skill.experience ? " (Exp. " + skill.experience + ")" : ""
+                }}
+              </li>
+            </ol>
+          </ng-template>
+        </td>
+        <td>
+          <button class="editEmp" (click)="editEmployee(employee.empId)">
+            <i class="fa-solid fa-pen"></i>
+          </button>
+          <button
+            class="delEmp"
+            (click)="deleteEmployee(employee.empId, employee.name)"
+          >
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

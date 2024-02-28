@@ -1,0 +1,94 @@
+// Color Definitions
+$color-green: #69C27D;
+$color-blue: #007bff;
+$color-red: red;
+$color-border: #ccc;
+$color-white: #ffffff;
+
+// Font and Spacing
+$body-font: Arial, sans-serif;
+$margin-bottom-form-group: 20px;
+$margin-right-column: 50px;
+$padding-button: 8px;
+$border-radius: 4px;
+
+// Styles
+.container {
+    margin: 10px;
+}
+body {
+    font-family: $body-font;
+}
+
+.form-group {
+    margin-bottom: $margin-bottom-form-group;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 25px 0 5px;
+}
+
+.column {
+    flex: 1;
+    margin-right: $margin-right-column;
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group input[type="email"],
+.form-group select {
+    width: 100%;
+    padding: $padding-button;
+    margin-top: 5px;
+    border: 1px solid $color-border;
+    border-radius: $border-radius;
+}
+
+.form-group input[type="radio"] {
+    margin-top: 5px;
+}
+
+.skill-inputs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.skill-inputs input[type="text"] {
+    margin-right: 25px;
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: $padding-button;
+    border-radius: $border-radius;
+    color: $color-white;
+    border: none;
+    cursor: pointer;
+}
+
+.green {
+    margin-bottom: 10px;
+    background-color: $color-green;
+}
+
+.btnBlue {
+    background-color: $color-blue;
+}
+
+.delSkill {
+    margin: 10px 0 10px 45px;
+    border: none;
+    color: $color-white;
+    background-color: $color-red;
+    cursor: pointer;
+}

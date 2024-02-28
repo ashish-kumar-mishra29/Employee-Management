@@ -1,0 +1,118 @@
+<div class="container">
+  <h1>{{ isEditMode ? "Edit Employee" : "Add Employee" }}</h1>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <div class="row">
+        <div class="column">
+          <label for="employeeId">Employee Id:</label>
+          <input
+            type="text"
+            id="employeeId"
+            formControlName="empId"
+            placeholder="Enter Id"
+            required
+          />
+        </div>
+        <div class="column">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            formControlName="name"
+            placeholder="Enter name"
+            required
+          />
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="column">
+          <label for="contactNumber">Contact Number:</label>
+          <input
+            type="tel"
+            id="contactNumber"
+            formControlName="contactNumber"
+            placeholder="Enter contact number"
+            required
+          />
+        </div>
+        <div class="column">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            placeholder="Enter email"
+            required
+          />
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="column" formArrayName="skills">
+          <div class="skill-header">
+            <label for="skillName">Skill:</label>
+            <button class="green" type="button" (click)="addSkill()">
+              Add skill +
+            </button>
+          </div>
+          <div
+            *ngFor="let skill of skills.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <div class="skill-inputs">
+              <input
+                type="text"
+                id="skillName"
+                formControlName="name"
+                placeholder="Enter skill name"
+                required
+              />
+              <select
+                id="experience"
+                formControlName="experience"
+                placeholder="Select experience in (years)"
+              >
+                
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="3+">3 +</option>
+              </select>
+              <button
+                class="delSkill"
+                type="button"
+                (click)="deleteSkill(i)"
+                [hidden]="skills.length === 1"
+              >
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <label>Gender</label>
+          <div class="form-group">
+            <div class="row">
+              <label
+                ><input type="radio" formControlName="gender" value="Male" />
+                Male</label
+              >
+              <label
+                ><input type="radio" formControlName="gender" value="Female" />
+                Female</label
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="btnBlue" type="submit">
+      {{ isEditMode ? "Update" : "Submit" }}
+    </button>
+  </form>
+</div>
